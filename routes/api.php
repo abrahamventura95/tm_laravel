@@ -43,3 +43,20 @@ Route::group([
         Route::delete('{id}', 'UserController@delete');
     });
 });
+
+
+//Money Moves
+Route::group([
+    'prefix' => 'task'
+], function () {
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::post('', 'TaskController@create');
+        Route::get('', 'TaskController@get');
+        Route::get('tag/{tag}', 'TaskController@getByTag');
+        Route::get('{id}', 'TaskController@show');
+        Route::put('{id}', 'TaskController@edit');
+        Route::delete('{id}', 'TaskController@delete');
+    });
+});

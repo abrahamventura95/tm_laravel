@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class subtask extends Model
+class Habitday extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'subtasks';
+    protected $table = 'habitdays';
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +19,6 @@ class subtask extends Model
      * @var array
      */
     protected $fillable = [
-        'task_id', 'tag', 'status'
+        'habit_id', 'tag', 'frequency', 'day', 'time'
     ];
 }
