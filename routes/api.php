@@ -44,7 +44,7 @@ Route::group([
     });
 });
 
-//Money Moves
+//Tasks
 Route::group([
     'prefix' => 'task'
 ], function () {
@@ -60,7 +60,7 @@ Route::group([
     });
 });
 
-//Money Moves
+//Appointments
 Route::group([
     'prefix' => 'apmnt'
 ], function () {
@@ -73,5 +73,21 @@ Route::group([
         Route::get('{id}', 'AppointController@show');
         Route::put('{id}', 'AppointController@edit');
         Route::delete('{id}', 'AppointController@delete');
+    });
+});
+
+//Habits
+Route::group([
+    'prefix' => 'habit'
+], function () {
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::post('', 'HabitController@create');
+        Route::get('', 'HabitController@get');
+        Route::get('tag/{tag}', 'HabitController@getByTag');
+        Route::get('{id}', 'HabitController@show');
+        Route::put('{id}', 'HabitController@edit');
+        Route::delete('{id}', 'HabitController@delete');
     });
 });
