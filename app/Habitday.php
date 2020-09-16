@@ -19,6 +19,6 @@ class Habitday extends Model
      * @var array
      */
     protected $fillable = [
-        'habit_id', 'tag', 'frequency', 'day', 'time'
+        'habit_id', 'tag', 'frecuency', 'day', 'time'
     ];
 }

@@ -104,3 +104,16 @@ Route::group([
         Route::delete('{id}', 'HabitController@delete');
     });
 });
+
+//Habits Day
+Route::group([
+    'prefix' => 'day'
+], function () {
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::post('{id}', 'HabitController@createDay');
+        Route::put('{id}', 'HabitController@editDay');
+        Route::delete('{id}', 'HabitController@deleteDay');
+    });
+});
