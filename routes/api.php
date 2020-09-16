@@ -60,6 +60,19 @@ Route::group([
     });
 });
 
+//Subtasks
+Route::group([
+    'prefix' => 'subtask'
+], function () {
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::post('{id}', 'TaskController@createSub');
+        Route::put('{id}', 'TaskController@editSub');
+        Route::delete('{id}', 'TaskController@deleteSub');
+    });
+});
+
 //Appointments
 Route::group([
     'prefix' => 'apmnt'
